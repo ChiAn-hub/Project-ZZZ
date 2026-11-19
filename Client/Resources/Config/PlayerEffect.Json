@@ -1,0 +1,36 @@
+{
+    "effects": [
+        {
+            "effectType": 1,
+            "prefabPath": "Prefabs/Eff/Sword Slash 1"
+        },
+        {
+            "effectType": 2,
+            "prefabPath": "Prefabs/Eff/Sword Slash 2"
+        },
+        {
+            "effectType": 3,
+            "prefabPath": "Prefabs/Eff/Sword Slash 6"
+        },
+        {
+            "effectType": 4,
+            "prefabPath": "Prefabs/Eff/Sword Slash Combo 7"
+        },
+        {
+            "effectType": 5,
+            "prefabPath": "Prefabs/Eff/Prick 3"
+        },
+        {
+            "effectType": 6,
+            "prefabPath": "Prefabs/Eff/Sword Slash 16"
+        },
+        {
+            "effectType": 7,
+            "prefabPath": "Prefabs/Eff/Spikes attack"
+        },
+        {
+            "effectType": 8,
+            "prefabPath": "Prefabs/Eff/Sword Slash Combo 1"
+        }
+    ]
+}

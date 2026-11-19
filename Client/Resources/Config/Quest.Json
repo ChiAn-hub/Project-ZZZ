@@ -1,0 +1,148 @@
+{
+    "QuestList": [
+        {
+            "Id": 1,
+            "Type": "Spend",
+            "Target": "BuyItem",
+            "Name": "资金链",
+            "Content": "前往商城中购买道具",
+            "Num": 1,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 2,
+            "Type": "CharactorDevelopment",
+            "Target": "EquipWeapon",
+            "Name": "帕瓦",
+            "Content": "穿戴一件装备",
+            "Num": 1,
+            "CharactorExp": 50,
+            "WeaponExp": 500,
+            "PlayerExp": 25,
+            "PlayerGold": 5000
+        },
+        {
+            "Id": 3,
+            "Type": "CharactorDevelopment",
+            "Target": "CharacterLevelUp",
+            "Name": "Level Up",
+            "Content": "角色升级一次",
+            "Num": 1,
+            "CharactorExp": 200,
+            "WeaponExp": 200,
+            "PlayerExp": 100,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 4,
+            "Type": "Fight",
+            "Target": "KillEnemy",
+            "Name": "日行一善",
+            "Content": "杀死一只怪物",
+            "Num": 1,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 5,
+            "Type": "Fight",
+            "Target": "KillEnemy",
+            "Name": "接触:区域安全",
+            "Content": "杀死三只怪物",
+            "Num": 3,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 6,
+            "Type": "WeaponDevelopment",
+            "Target": "EnhanceWeapon",
+            "Name": "武器强化",
+            "Content": "强化一次武器",
+            "Num": 1,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 7,
+            "Type": "Daily",
+            "Target": "CompleteQuest",
+            "Name": "绳之道",
+            "Content": "完成一次任务",
+            "Num": 1,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 8,
+            "Type": "CharactorDevelopment",
+            "Target": "ChangeWeapon",
+            "Name": "更换武器",
+            "Content": "角色更换一把武器",
+            "Num": 1,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 9,
+            "Type": "Fight",
+            "Target": "KillEnemy",
+            "Name": "接触:区域安全",
+            "Content": "杀死五只怪物",
+            "Num": 5,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 10,
+            "Type": "Spend",
+            "Target": "BuyItem",
+            "Name": "花费一次金币",
+            "Content": "前往商城中购买道具",
+            "Num": 1,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 11,
+            "Type": "Move",
+            "Target": "MoveDistance",
+            "Name": "日行千里",
+            "Content": "角色移动50米",
+            "Num": 50,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        },
+        {
+            "Id": 12,
+            "Type": "Move",
+            "Target": "MoveDistance",
+            "Name": "日行千里",
+            "Content": "角色移动100米",
+            "Num": 100,
+            "CharactorExp": 100,
+            "WeaponExp": 100,
+            "PlayerExp": 50,
+            "PlayerGold": 10000
+        }
+    ]
+}

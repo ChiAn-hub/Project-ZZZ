@@ -1,0 +1,196 @@
+{
+    "animations": [
+        {
+            "animationType": 0,
+            "stateName": "Idle"
+        },
+        {
+            "animationType": 1,
+            "stateName": "Idle_AFK"
+        },
+        {
+            "animationType": 2,
+            "stateName": "EnterStart"
+        },
+        {
+            "animationType": 3,
+            "stateName": "Walk_Start"
+        },
+        {
+            "animationType": 4,
+            "stateName": "Walk_Start_End"
+        },
+        {
+            "animationType": 5,
+            "stateName": "Walk"
+        },
+        {
+            "animationType": 6,
+            "stateName": "Walk_End"
+        },
+        {
+            "animationType": 7,
+            "stateName": "Run"
+        },
+        {
+            "animationType": 8,
+            "stateName": "Run_End"
+        },
+        {
+            "animationType": 9,
+            "stateName": "Evade_Front"
+        },
+        {
+            "animationType": 10,
+            "stateName": "Evant_Back"
+        },
+        {
+            "animationType": 11,
+            "stateName": "TurnBack"
+        },
+        {
+            "animationType": 12,
+            "stateName": "LevelUp"
+        },
+        {
+            "animationType": 13,
+            "stateName": "OnNormalHit"
+        },
+        {
+            "animationType": 14,
+            "stateName": "OnHitFly"
+        },
+        {
+            "animationType": 15,
+            "stateName": "Death"
+        },
+        {
+            "animationType": 16,
+            "stateName": "NormalAtk"
+        },
+        {
+            "animationType": 17,
+            "stateName": "NormalAtkEnd"
+        },
+        {
+            "animationType": 18,
+            "stateName": "Move_NormalAtk"
+        },
+        {
+            "animationType": 19,
+            "stateName": "Move_NormalAtkEnd"
+        },
+        {
+            "animationType": 20,
+            "stateName": "NormalAtk2"
+        },
+        {
+            "animationType": 21,
+            "stateName": "NormalAtk2End"
+        },
+        {
+            "animationType": 22,
+            "stateName": "Move_NormalAtk2"
+        },
+        {
+            "animationType": 23,
+            "stateName": "NormalAtk3"
+        },
+        {
+            "animationType": 24,
+            "stateName": "NormalAtk3_2"
+        },
+        {
+            "animationType": 25,
+            "stateName": "NormalAtk3_Near"
+        },
+        {
+            "animationType": 26,
+            "stateName": "NormalAtk3_2Near"
+        },
+        {
+            "animationType": 27,
+            "stateName": "NormalAtk3End"
+        },
+        {
+            "animationType": 28,
+            "stateName": "Move_NormalAtk3"
+        },
+        {
+            "animationType": 29,
+            "stateName": "Move_NormalAtk3_2"
+        },
+        {
+            "animationType": 30,
+            "stateName": "Move_NormalAtk3_Near"
+        },
+        {
+            "animationType": 31,
+            "stateName": "Move_NormalAtk3_2Near"
+        },
+        {
+            "animationType": 32,
+            "stateName": "Move_NormalAtk3End"
+        },
+        {
+            "animationType": 33,
+            "stateName": "Skill_1"
+        },
+        {
+            "animationType": 34,
+            "stateName": "Skill_1_End"
+        },
+        {
+            "animationType": 35,
+            "stateName": "Skill_2"
+        },
+        {
+            "animationType": 36,
+            "stateName": "Skill_2_End"
+        },
+        {
+            "animationType": 37,
+            "stateName": "Skill_3"
+        },
+        {
+            "animationType": 38,
+            "stateName": "Skill_3_End"
+        },
+        {
+            "animationType": 39,
+            "stateName": "EX_Skill"
+        },
+        {
+            "animationType": 40,
+            "stateName": "EXSkill_End"
+        },
+        {
+            "animationType": 41,
+            "stateName": "Dash_Start"
+        },
+        {
+            "animationType": 42,
+            "stateName": "Dash"
+        },
+        {
+            "animationType": 43,
+            "stateName": "Dash_End"
+        },
+        {
+            "animationType": 44,
+            "stateName": "Dash_Evade"
+        },
+        {
+            "animationType": 45,
+            "stateName": "Dash_Atk"
+        },
+        {
+            "animationType": 46,
+            "stateName": "Dash_Atk_2"
+        },
+        {
+            "animationType": 47,
+            "stateName": "Dash_Atk_End"
+        }
+    ]
+}

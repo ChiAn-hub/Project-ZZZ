@@ -1,0 +1,60 @@
+{
+    "infoList": [
+        {
+            "panelTypeName": "LoadingPanel",
+            "path": "Prefabs/UI/LoadingPanel"
+        },
+        {
+            "panelTypeName": "LoadMainPanel",
+            "path": "Prefabs/UI/LoadMainPanel"
+        },
+        {
+            "panelTypeName": "LoadPanel",
+            "path": "Prefabs/UI/LoadPanel"
+        },
+        {
+            "panelTypeName": "RegisterPanel",
+            "path": "Prefabs/UI/RegisterPanel"
+        },
+        {
+            "panelTypeName": "SetNamePanel",
+            "path": "Prefabs/UI/SetNamePanel"
+        },
+        {
+            "panelTypeName": "QuestPanel",
+            "path": "Prefabs/UI/QuestPanel"
+        },
+        {
+            "panelTypeName": "OpenQuestPanel",
+            "path": "Prefabs/UI/OpenQuestPanel"
+        },
+        {
+            "panelTypeName": "MainPanel",
+            "path": "Prefabs/UI/MainPanel"
+        },
+        {
+            "panelTypeName": "CityPanel",
+            "path": "Prefabs/UI/CityPanel"
+        },
+        {
+            "panelTypeName": "BagPanel",
+            "path": "Prefabs/UI/BagPanel"
+        },
+        {
+            "panelTypeName": "ShopPanel",
+            "path": "Prefabs/UI/ShopPanel"
+        },
+        {
+            "panelTypeName": "OpenShopPanel",
+            "path": "Prefabs/UI/OpenShopPanel"
+        },
+        {
+            "panelTypeName": "PlayerPanel",
+            "path": "Prefabs/UI/PlayerPanel"
+        },
+        {
+            "panelTypeName": "SystemPanel",
+            "path": "Prefabs/UI/SystemPanel"
+        }
+    ]
+}

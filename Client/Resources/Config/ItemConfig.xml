@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<Objects>
+    <!--武器-->
+    <Object itemId = "1001" name = "「月相」-望" itemType = "1" quality = "B" path = "ItemIcons/Weapon/1001" content = "提供攻击力加成，提升普通攻击、冲刺攻击和闪避反击造成的伤害。"/>
+    <Object itemId = "1002" name = "「月相」-朔" itemType = "1" quality = "B" path = "ItemIcons/Weapon/1002" content = "提供暴击率加成；发动强化特殊技时，可回复能量点。"/>
+    <Object itemId = "1003" name = "「月相」-弦" itemType = "1" quality = "B" path = "ItemIcons/Weapon/1003" content = "提供防御力加成；发动强化特殊技时，提升普通攻击造成的伤害，持续10秒。"/>
+    <Object itemId = "1004" name = "德玛拉电池Ⅱ型" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1004" content = "提供电属性伤害加成；闪避反击或支援攻击命中敌人时，提升自身的能量获得效率，持续8秒。"/>
+    <Object itemId = "1005" name = "贵重骨核" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1005" content = "提供冲击力加成；对生命值高于50%的敌人造成失衡值提升，敌人生命值高于75%时该效果额外提升。"/>
+    <Object itemId = "1006" name = "管家" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1006" content = "处于后场时，能量自动回复速度提升；强化特殊技命中敌人时，提升自身的物理伤害，最多叠加15层。"/>
+    <Object itemId = "1007" name = "仿制星辉引擎" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1007" content = "发动闪避反击或快速支援时，提升装备者的攻击力，持续12秒。"/>
+    <Object itemId = "1008" name = "钻头" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1008" content = "提供攻击力加成；普通攻击、闪避反击等命中敌人时，可叠加攻击力提升效果。"/>
+    <Object itemId = "1009" name = "大圆筒" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1009" content = "受到攻击或触发极限闪避时，可提升自身的抗打断等级或获得护盾效果。"/>
+    <Object itemId = "1010" name = "含羞恶面" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1010" content = "提供冰属性伤害加成；发动强化特殊技时，提升全队攻击力，最多叠加4层。"/>
+    <Object itemId = "1011" name = "轰隆炮" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1011" content = "提供能量自动回复；任意友方单位攻击命中敌人时，提升全队攻击力，最多叠加4层。"/>
+    <Object itemId = "1012" name = "派派轮" itemType = "1" quality = "A" path = "ItemIcons/Weapon/1012" content = "提供异常掌控加成；对敌人施加属性异常时，提升自身造成的物理伤害。"/>
+    <Object itemId = "1013" name = "鲨牙布" itemType = "1" quality = "S" path = "ItemIcons/Weapon/1013" content = "提供冰属性伤害与暴击率加成；冲刺攻击命中敌人后，可进一步叠加暴击率提升效果。"/>
+    <!--饮品-->
+    <Object itemId = "3001" name = "红茶拿提" itemType = "3" quality = "S" path = "ItemIcons/Other/3001" content = "饮用后击破认证章掉落数量提升100%"/>
+    <Object itemId = "3002" name = "麦草拿提" itemType = "3" quality = "S" path = "ItemIcons/Other/3002" content = "饮用后引燃战术芯片掉落数量提升100%"/>
+    <Object itemId = "3003" name = "胡椒拿提" itemType = "3" quality = "S" path = "ItemIcons/Other/3003" content = "饮用后电击战术芯片掉落数量提升100%"/>
+    <Object itemId = "3004" name = "汀曼特调" itemType = "3" quality = "S" path = "ItemIcons/Other/3004" content = "饮用后恢复电量×80"/>
+    <Object itemId = "3005" name = "浓缩咖啡" itemType = "3" quality = "S" path = "ItemIcons/Other/3005" content = "饮用后全品类认证章掉落数量提升100%"/>
+    <Object itemId = "3006" name = "新艾利都特调" itemType = "3" quality = "S" path = "ItemIcons/Other/3006" content = "饮用后恢复电量×60"/>
+    <Object itemId = "3007" name = "月壤摩咔" itemType = "3" quality = "S" path = "ItemIcons/Other/3007" content = "饮用后使击破组件掉落数量提升100%"/>
+    <Object itemId = "3008" name = "果泡拿提" itemType = "3" quality = "S" path = "ItemIcons/Other/3008" content = "饮用后支援认证章掉落数量提升100%"/>
+    <Object itemId = "3009" name = "摩卡咖啡" itemType = "3" quality = "S" path = "ItemIcons/Other/3009" content = "饮用后防护认证章掉落数量提升100%"/>
+    <Object itemId = "3010" name = "熔岩拿提" itemType = "3" quality = "S" path = "ItemIcons/Other/3010" content = "饮用后强攻认证章掉落数量提升100%"/>
+    <!--道具-->
+    <Object itemId = "2001" name = "见习调查员记录" itemType = "2" quality = "C" path = "ItemIcons/Exp/2001" content = "基础经验材料，使用后可增加 100点 代理人经验。"/>
+    <Object itemId = "2002" name = "正式调查员记录" itemType = "2" quality = "B" path = "ItemIcons/Exp/2002" content = "中阶经验材料，使用后可增加 600点 代理人经验。"/>
+    <Object itemId = "2003" name = "资深调查员记录" itemType = "2" quality = "A" path = "ItemIcons/Exp/2003" content = "高阶经验材料，使用后可增加 3000点 代理人经验。"/>
+    <Object itemId = "2004" name = "资深调查员记录" itemType = "2" quality = "S" path = "ItemIcons/Exp/2004" content = "同样为高阶经验材料，提供 3000点 代理人经验。"/>
+    <Object itemId = "4001" name = "音擎蓄电池" itemType = "4" quality = "C" path = "ItemIcons/Exp/4001" content = "基础经验材料，使用后可增加 100点 音擎经验。"/>
+    <Object itemId = "4002" name = "变频音擎能源" itemType = "4" quality = "B" path = "ItemIcons/Exp/4002" content = "中阶经验材料，使用后可增加 600点 音擎经验。"/>
+    <Object itemId = "4003" name = "音擎能源模块" itemType = "4" quality = "A" path = "ItemIcons/Exp/4003" content = "高阶经验材料，使用后可增加 3000点 音擎经验。"/>
+    <Object itemId = "4004" name = "音擎能源模块" itemType = "4" quality = "S" path = "ItemIcons/Exp/4004" content = "高阶经验材料，使用后可增加 3000点 音擎经验。"/>
+</Objects>   

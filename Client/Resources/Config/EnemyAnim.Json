@@ -1,0 +1,52 @@
+{
+    "animations": [
+        {
+            "animType": 0,
+            "animName": "Idle"
+        },
+        {
+            "animType": 1,
+            "animName": "Walk_F"
+        },
+        {
+            "animType": 2,
+            "animName": "Walk_B"
+        },
+        {
+            "animType": 3,
+            "animName": "Atk_1"
+        },
+        {
+            "animType": 4,
+            "animName": "Atk_2"
+        },
+        {
+            "animType": 5,
+            "animName": "Atk_3"
+        },
+        {
+            "animType": 6,
+            "animName": "Atk_4"
+        },
+        {
+            "animType": 7,
+            "animName": "Atk_5"
+        },
+        {
+            "animType": 8,
+            "animName": "OnHit"
+        },
+        {
+            "animType": 9,
+            "animName": "Death"
+        },
+        {
+            "animType": 10,
+            "animName": "Walk_F_Start"
+        },
+        {
+            "animType": 11,
+            "animName": "Walk_B_Start"
+        }
+    ]
+}

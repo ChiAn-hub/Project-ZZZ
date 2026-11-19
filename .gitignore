@@ -1,0 +1,12 @@
+# VS 缓存、编译产物和已下载的 NuGet 包
+.vs/
+[Bb]in/
+[Oo]bj/
+/Server/**/packages/
+*.user
+*.suo
+
+# 源码展示版只提交 Resources 下的配置
+/Client/Resources/*
+!/Client/Resources/Config/
+!/Client/Resources/Config.meta
