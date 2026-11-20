@@ -23,15 +23,11 @@ public class EnemyIdleState : IEnemyState
 
     public void OnUpdate()
     {
-        if (enemy.FindPlayer())
+        idleTime += Time.deltaTime;
+        if (idleTime < targetIdleTime)//如果已经达到待机时间
         {
-            enemy.StateMachine.ChangeState(EnemyStateType.Chase);//进入追击状态
             return;
         }
-        idleTime += Time.deltaTime;
-        if (idleTime >= targetIdleTime)//如果已经达到待机时间
-        {
-            enemy.StateMachine.ChangeState(EnemyStateType.Patrol);//进入巡逻状态
-        }
+        enemy.StateMachine.SetStateResult(EnemyStateResult.Success);//设置状态结果为成功
     }
 }

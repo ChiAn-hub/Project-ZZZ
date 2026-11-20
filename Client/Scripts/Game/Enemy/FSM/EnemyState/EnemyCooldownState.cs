@@ -20,6 +20,11 @@ public class EnemyCooldownState : IEnemyState
     {
         cooldownTime = 0;
         isWalkForward = Random.value < 0.5f;//随机选择前移或后移
+        if (!enemy.IsPlayerInDetectionRange())
+        {
+            ChangePhase(CooldownPhase.Waiting);
+            return;
+        }
         enemy.LookAtPlayer();
         ChangePhase(CooldownPhase.WalkStart);
     }
@@ -32,25 +37,22 @@ public class EnemyCooldownState : IEnemyState
     public void OnUpdate()
     {
         cooldownTime += Time.deltaTime;
-        if (!enemy.IsPlayerInDetectionRange())//如果玩家离开了检测范围
+        if (cooldownTime >= enemy.EnemyModel.AtkCooldown)//冷却完成
+        {
+            enemy.StateMachine.SetStateResult(EnemyStateResult.Success);//冷却完成
+            return;
+        }
+
+        if (!enemy.IsPlayerInDetectionRange())//玩家不在攻击范围内
         {
             if (curPhase != CooldownPhase.Waiting)
             {
-                ChangePhase(CooldownPhase.Waiting);//停止移动但继续计算冷却
+                ChangePhase(CooldownPhase.Waiting);
             }
-            if (cooldownTime >= enemy.EnemyModel.AtkCooldown)
-            {
-                enemy.ClearPlayerTarget();
-                enemy.StateMachine.ChangeState(EnemyStateType.Idle);
-            }
+
             return;
         }
         enemy.LookAtPlayer();
-        if (cooldownTime >= enemy.EnemyModel.AtkCooldown)
-        {
-            CheckNextState();
-            return;
-        }
         switch (curPhase)
         {
             case CooldownPhase.WalkStart:
@@ -83,18 +85,6 @@ public class EnemyCooldownState : IEnemyState
     private void UpdateWalking()
     {
 
-    }
-
-    private void CheckNextState()//判断冷却结束后的状态
-    {
-        if (enemy.IsPlayerInAttackRange())
-        {
-            enemy.StateMachine.ChangeState(EnemyStateType.Attack);//继续攻击
-        }
-        else
-        {
-            enemy.StateMachine.ChangeState(EnemyStateType.Chase);//追击玩家
-        }
     }
 
     private void ChangePhase(CooldownPhase nextPhase)

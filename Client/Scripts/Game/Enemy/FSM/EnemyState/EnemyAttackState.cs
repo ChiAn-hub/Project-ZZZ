@@ -31,9 +31,10 @@ public class EnemyAttackState : IEnemyState
 
     public void OnUpdate()
     {
-        if (enemy.IsAnimFinished(curAnimType))
+        if (!enemy.IsAnimFinished(curAnimType))
         {
-            enemy.StateMachine.ChangeState(EnemyStateType.Cooldown);//攻击动画播放完毕则进入冷却状态
+            return;
         }
+        enemy.StateMachine.SetStateResult(EnemyStateResult.Success);
     }
 }

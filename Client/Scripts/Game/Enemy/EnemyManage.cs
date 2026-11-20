@@ -6,19 +6,21 @@ using UnityEngine;
 
 public class EnemyManage : MonoBehaviour
 {
+    private int playerLayer;
+    private bool isHitWall;//是否碰到墙壁
+    private bool isOnHit;//是否进入受击状态
 
     [SerializeField]
     private Transform attackPoint;//怪物攻击检测位置
+    private Transform playerTarget;//检测到玩家
+    private Animator animator;//获取怪物身上的动画组件
+    private EnemyModel enemyModel;
+    private CharacterController ccController;//获取怪物身上的控制器组件
+
+    private EnemyStateMachine stateMachine;//创建状态机
+    private BehaviorTree behaviorTree;//创建行为树
 
     private readonly Collider[] playerHitResults = new Collider[5];//检测结果缓存
-
-    private Animator animator;//获取怪物身上的动画组件
-    private CharacterController ccController;//获取怪物身上的控制器组件
-    private EnemyStateMachine stateMachine;//创建状态机
-    private EnemyModel enemyModel;
-    private bool isHitWall;//是否碰到墙壁
-    private Transform playerTarget;//检测到玩家
-    private int playerLayer;
     private Dictionary<EnemyAnimType, int> animDict = new Dictionary<EnemyAnimType, int>();//用字典存储动画类型和对应的哈希值
     public bool IsHitWall
     {
@@ -74,25 +76,29 @@ public class EnemyManage : MonoBehaviour
         stateMachine.AddState(EnemyStateType.Cooldown, new EnemyCooldownState(this));
         stateMachine.AddState(EnemyStateType.Hit, new EnemyHitState(this));
         stateMachine.AddState(EnemyStateType.Death, new EnemyDeathState(this));
+
+        CreateBehaviorTree();//创建怪物行为树
     }
 
     void OnEnable()//启用时
     {
         isHitWall = false;
+        isOnHit = false;
         playerTarget = null;
         enemyModel.ResetData();//重置数据
-        stateMachine.ChangeState(EnemyStateType.Idle);//切换到Idle状态
+        stateMachine.ChangeState(EnemyStateType.Idle, true);//切换到Idle状态
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (stateMachine == null)
+        if (stateMachine == null || behaviorTree == null)
         {
             return;
         }
 
-        stateMachine.Update();//更新当前状态
+        behaviorTree.Update();//行为树决定怪物处于哪个状态
+        stateMachine.Update();//FSM执行当前状态的具体逻辑
     }
     private void ReadEnemyInfo()
     {
@@ -109,6 +115,109 @@ public class EnemyManage : MonoBehaviour
             animDict.Add(animInfo.animType, animHash);//保存动画类型和哈希值
         }
     }
+
+    private bool IsStateRunning(EnemyStateType stateType)//判断当前状态是否正在运行
+    {
+        return stateMachine.CurStateType == stateType && stateMachine.CurStateResult == EnemyStateResult.Running;
+    }
+
+    private bool IsStateSuccess(EnemyStateType stateType)//判断当前状态是否成功
+    {
+        return stateMachine.CurStateType == stateType && stateMachine.CurStateResult == EnemyStateResult.Success;
+    }
+
+    private BTNodeState KeepCurrentState()//用于告诉状态树保持当前状态
+    {
+        return BTNodeState.Running;
+    }
+
+    private bool HasValidPlayerTarget()//判断玩家目标是否有效
+    {
+        if (!FindPlayer())//找不到玩家
+        {
+            return false;
+        }
+
+        if (IsPlayerInDetectionRange())//玩家在检测范围内
+        {
+            return true;
+        }
+
+        ClearPlayerTarget();//玩家离开检测范围,清空旧目标
+        return false;
+    }
+
+    private BTNodeState ChangeEnemyState(EnemyStateType stateType)//更改状态
+    {
+        stateMachine.ChangeState(stateType);
+        return BTNodeState.Running;
+    }
+
+    private BTNodeState ChangeToHitState()//进入受击状态
+    {
+        isOnHit = false;
+        stateMachine.ChangeState(EnemyStateType.Hit, true);////连续受击时重新播放受击动画
+        return BTNodeState.Running;
+    }
+
+    private BTNode CreateChangeStateBranch(Func<bool> condition, EnemyStateType stateType)//根据条件和状态类型创建和更改状态分支
+    {
+        return new SequenceBTNode(new List<BTNode>()
+        {
+            new ConditionNode(condition),//条件节点
+            new ActionNode(() => ChangeEnemyState(stateType))//动作节点
+        });
+    }
+
+    private BTNode CreateRunningStateBranch(EnemyStateType stateType)
+    {
+        return new SequenceBTNode(new List<BTNode>()
+        {
+            new ConditionNode(() => IsStateRunning(stateType)),//条件节点
+            new ActionNode(KeepCurrentState)//动作节点
+        });
+    }
+
+    private void CreateBehaviorTree()//创建怪物行为树
+    {
+        BTNode hitBranch = new SequenceBTNode(new List<BTNode>()
+        {
+            new ConditionNode(() => isOnHit),//是否收到受击请求
+            new ActionNode(ChangeToHitState)//进入受击状态
+        });
+
+        BTNode combatBranch = new SequenceBTNode(new List<BTNode>()//创建一个战斗分支的顺序节点
+        {
+
+            new ConditionNode(HasValidPlayerTarget),//判断是否存在有效玩家目标
+            new SelectBTNode(new List<BTNode>()//创建一个新的分支
+            {
+                new SequenceBTNode(new List<BTNode>()//新分支下的顺序节点
+                {
+                    new ConditionNode(IsPlayerInAttackRange),//玩家进入攻击范围
+                    new ActionNode(() => ChangeEnemyState(EnemyStateType.Attack))//切换状态为攻击
+                }),
+                new ActionNode(() => ChangeEnemyState(EnemyStateType.Chase))//不在攻击范围则追击
+            })
+        });
+
+        BTNode rootNode = new SelectBTNode(new List<BTNode>()//创建行为树根节点
+        {
+            CreateChangeStateBranch(()=> enemyModel.IsDead(), EnemyStateType.Death),//死亡分支优先级最高
+            hitBranch,//收到伤害时进入受击状态
+            CreateRunningStateBranch(EnemyStateType.Hit),//受击动画没有结束时,保持受击状态
+            CreateRunningStateBranch(EnemyStateType.Attack),//攻击动画没有结束时,保持攻击状态
+            CreateChangeStateBranch(()=>IsStateSuccess(EnemyStateType.Attack),EnemyStateType.Cooldown),//攻击完成后进入攻击冷却
+            CreateRunningStateBranch(EnemyStateType.Cooldown),//冷却没有完成时,保持冷却状态
+            combatBranch,//发现玩家后,在攻击和追击之间选择
+            CreateRunningStateBranch(EnemyStateType.Patrol),//巡逻没有结束时,保持巡逻状态
+            CreateChangeStateBranch(()=>IsStateSuccess(EnemyStateType.Idle),EnemyStateType.Patrol),//待机完成后进入巡逻
+            new ActionNode(() => ChangeEnemyState(EnemyStateType.Idle))//没有其他行为可以执行时进入待机
+        });
+
+        behaviorTree = new BehaviorTree(rootNode);
+    }
+
     public void PlayAnim(EnemyAnimType animType)//播放动画
     {
         int animHash;
@@ -231,7 +340,8 @@ public class EnemyManage : MonoBehaviour
         }
         if (enemyModel.IsDead())
         {
-            stateMachine.ChangeState(EnemyStateType.Death);
+            isOnHit = false;
+
             bool hasKillEnemyQuest = QuestModel.Instance.HasActiveQuestTarget(QuestTarget.KillEnemy);
             if (hasKillEnemyQuest)
             {
@@ -249,7 +359,7 @@ public class EnemyManage : MonoBehaviour
         }
         else
         {
-            stateMachine.ChangeState(EnemyStateType.Hit);
+            isOnHit = true;
         }
 
         return damage;

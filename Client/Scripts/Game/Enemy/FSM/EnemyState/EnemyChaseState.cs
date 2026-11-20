@@ -26,20 +26,8 @@ public class EnemyChaseState : IEnemyState
 
     public void OnUpdate()
     {
-        if (!enemy.IsPlayerInDetectionRange())//玩家离开检测范围
-        {
-            enemy.ClearPlayerTarget();//清除玩家目标
-            enemy.StateMachine.ChangeState(EnemyStateType.Idle);
-            return;
-        }
 
         enemy.LookAtPlayer();//追击时持续朝向玩家
-
-        if (enemy.IsPlayerInAttackRange())//到达攻击范围
-        {
-            enemy.StateMachine.ChangeState(EnemyStateType.Attack);
-            return;
-        }
 
         switch (curPhase)
         {

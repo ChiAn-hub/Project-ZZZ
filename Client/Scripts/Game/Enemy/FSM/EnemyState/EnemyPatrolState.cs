@@ -31,7 +31,7 @@ public class EnemyPatrolState : IEnemyState
 
         if (!CreatePatorlPath())//如果没有创建巡逻路径
         {
-            enemy.StateMachine.ChangeState(EnemyStateType.Idle);//则待机
+            enemy.StateMachine.SetStateResult(EnemyStateResult.Failure);
             return;
         }
 
@@ -48,21 +48,16 @@ public class EnemyPatrolState : IEnemyState
 
     public void OnUpdate()
     {
-        if (enemy.FindPlayer())//发现玩家
-        {
-            enemy.StateMachine.ChangeState(EnemyStateType.Chase);//进入追击状态
-            return;
-        }
         if (enemy.IsHitWall)//如果碰到了墙
         {
             enemy.ClearHitWall();
-            enemy.StateMachine.ChangeState(EnemyStateType.Idle);//进入待机状态
+            enemy.StateMachine.SetStateResult(EnemyStateResult.Failure);
             return;
         }
 
         if (path == null || curPathIndex >= path.Count)//如果路径为空或者当前索引已经超过了路径长度
         {
-            enemy.StateMachine.ChangeState(EnemyStateType.Idle);//进入待机状态
+            enemy.StateMachine.SetStateResult(EnemyStateResult.Failure);
             return;
         }
 
@@ -94,7 +89,7 @@ public class EnemyPatrolState : IEnemyState
 
             if (curPathIndex >= path.Count)
             {
-                enemy.StateMachine.ChangeState(EnemyStateType.Idle);
+                enemy.StateMachine.SetStateResult(EnemyStateResult.Success);
                 return;
             }
         }

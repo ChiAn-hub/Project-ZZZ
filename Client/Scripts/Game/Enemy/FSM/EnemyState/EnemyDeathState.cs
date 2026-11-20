@@ -21,9 +21,13 @@ public class EnemyDeathState : IEnemyState
 
     public void OnUpdate()
     {
-        if (enemy.IsAnimFinished(EnemyAnimType.Death))
+        if (!enemy.IsAnimFinished(EnemyAnimType.Death))
         {
-            enemy.gameObject.SetActive(false);
+            return;
         }
+
+        enemy.StateMachine.SetStateResult(EnemyStateResult.Success);//死亡动画完成
+
+        enemy.gameObject.SetActive(false);//回收到对象池
     }
 }

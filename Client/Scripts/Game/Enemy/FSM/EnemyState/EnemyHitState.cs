@@ -23,13 +23,6 @@ public class EnemyHitState : IEnemyState
         {
             return;
         }
-        if (enemy.FindPlayer())//受伤结束后发现玩家
-        {
-            enemy.StateMachine.ChangeState(EnemyStateType.Chase);//追击
-        }
-        else
-        {
-            enemy.StateMachine.ChangeState(EnemyStateType.Idle);//待机
-        }
+        enemy.StateMachine.SetStateResult(EnemyStateResult.Success);
     }
 }
